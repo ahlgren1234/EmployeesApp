@@ -6,6 +6,7 @@ namespace EmployeesApp.Web.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Enter a name")]
+        [RegularExpression("^[A-Z].*", ErrorMessage = "Name must begin with capitalized character")]
         public string Name { get; set; }
         [EmailAddress(ErrorMessage = "Enter an e-mail")]
         [Display(Name= "E-mail")]
