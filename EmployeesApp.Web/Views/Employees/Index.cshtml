@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
     </head>
     <body>
-        
-        <ol>
-        @foreach(var employee in Model)
-        {
-            <li><a href="/">@employee.Name</a></li>
-        }
+        <h2>Employee list</h2>
+        <ol style="list-style-type:none;">
+            @foreach(var employee in Model)
+            {
+                <li><a asp-controller="employees" asp-action="details" asp-route-id="@employee.Id">@employee.Name</a></li>
+            }
         </ol>
         <a asp-controller="employees" asp-action="create">Create new employee</a>
     </body>

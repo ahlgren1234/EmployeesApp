@@ -1,0 +1,16 @@
+﻿@model EmployeesApp.Web.Models.Employee
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Employee details: @Model.Name</title>
+        <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+    </head>
+    <body>
+        <ol style="list-style-type:none;">
+            <li>Name: @Model.Name</li>
+            <li>Email: @Model.Email</li>
+        </ol>
+        <a asp-controller="employees" asp-action="index">Back</a>
+    </body>
+    </html>

@@ -6,7 +6,7 @@ namespace EmployeesApp.Web.Controllers;
 
 public class EmployeesController : Controller
 {
-    EmployeeService employeeService = new EmployeeService();
+    static EmployeeService employeeService = new EmployeeService();
 
     [HttpGet("")]
     public IActionResult Index()
@@ -24,7 +24,16 @@ public class EmployeesController : Controller
     [HttpPost("create")]
     public IActionResult Create(Employee employee)
     {
+        if (!ModelState.IsValid)
+            return View();
         employeeService.Add(employee);
         return RedirectToAction("Index");
+    }
+
+    [HttpGet("details/{Id}")]
+    public IActionResult Details(int Id)
+    {
+        var model = employeeService.GetById(Id);
+        return View(model);
     }
 }
